@@ -1,6 +1,8 @@
 { pkgs ? import ./nix { }, lib ? pkgs.lib }:
 let
-  v1_internal = pkgs.callPackage ./internal-v1.nix { };
+  v1_internal = pkgs.callPackage ./internal-v1.nix { 
+    nodejs-18_x = pkgs.nodejs-18_x or pkgs.nodejs_18;
+  };
   v2_internal = pkgs.callPackage ./internal-v2.nix { };
   separatePublicAndInternalAPI = api: extraAttributes: {
     inherit (api) shell build node_modules;
