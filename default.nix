@@ -3,7 +3,9 @@ let
   v1_internal = pkgs.callPackage ./internal-v1.nix { 
     nodejs-18_x = pkgs.nodejs-18_x or pkgs.nodejs_18;
   };
-  v2_internal = pkgs.callPackage ./internal-v2.nix { };
+  v2_internal = pkgs.callPackage ./internal-v2.nix { 
+    nodejs-16_x = pkgs.nodejs-16_x or pkgs.nodejs_20;
+  };
   separatePublicAndInternalAPI = api: extraAttributes: {
     inherit (api) shell build node_modules;
 
