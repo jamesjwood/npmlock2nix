@@ -1,6 +1,6 @@
 { pkgs ? import ../../../nix { } }:
 let
-  node = pkgs.nodejs-14_x;
+  node = pkgs.nodejs-18_x;
 in
 # We need make sure that `nodejs` does not default to `nodejs-10_x` because
   # then our test cannot ensure that we can override the default. If the assert
